@@ -8,8 +8,23 @@ get:
       in: path
       required: true
       description: The id of the pet to retrieve
+      externalDoc: 
+        description: hoge
+        url: https://www.youtube.com/watch?v=-VbflLhugVM
       schema:
         type: string
+  requestBody:
+    content:
+      application/json:
+        schema:
+          type: object
+          properties:
+            name:
+              type: string
+              example: hoge
+              externalDoc: 
+                description: hoge
+                url: https://www.youtube.com/watch?v=-VbflLhugVM
   responses:
     '200':
       description: Expected response to a valid request
