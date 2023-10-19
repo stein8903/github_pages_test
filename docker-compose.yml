@@ -3,7 +3,7 @@ services:
   swagger-ui:
     image: swaggerapi/swagger-ui
     ports:
-      - 8000:8080
+      - 8001:8080
     volumes:
       - ./docs:/usr/share/nginx/html
   swagger-watch:
@@ -15,3 +15,18 @@ services:
       - ./docs/swagger.yml:/docs/swagger.yml
     working_dir: /app
     command: 'node index.js'
+  redoc:
+    image: redocly/redoc
+    environment:
+      - SPEC_URL=/docs/swagger.yml
+    volumes:
+      - ./docs/swagger.yml:/usr/share/nginx/html/docs/swagger.yml
+    ports:
+      - "8002:80"
+  redoc-cli:
+    build: ./redoc-cli
+    tty: true
+    command: >
+      watch -p /var/app/swagger.yml -c "redocly build-docs /var/app/swagger.yml -o /var/app/redoc.html"
+    volumes:
+      - ./docs/:/var/app/
