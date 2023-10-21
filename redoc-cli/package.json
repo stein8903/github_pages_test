@@ -1,0 +1,12 @@
+{
+  "name": "redoc-cli",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "browser-sync": "^2.29.3"
+  },
+  "scripts": {
+    "server": "browser-sync start --config \"./bs-config.js\""
+  }
+}
