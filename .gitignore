@@ -61,3 +61,7 @@ typings/
 .next
 
 .DS_Store
+
+# 出力ファイル
+docs/swagger.yml
+docs/redoc.html
